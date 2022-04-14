@@ -2,23 +2,39 @@ class Calculator {
 
      convertValue(value){
           let firstValue ="";
-          // let secondValue ="";
+          let secondValue = 0;
           let lengthOfValue = value.length;
           let result =0;
 
           for(let i=0; i < lengthOfValue; i++){
                switch(value[i]){
                     case '+': {
-                     result = this.sum(+firstValue + +value.substring(i, lengthOfValue-1));
+                     secondValue = Number(value.substring(i, lengthOfValue))
+                     result = this.sum((+firstValue) , secondValue);
+                          break;
+                    }
+                    case '*': {
+                     secondValue = Number(value.substring(i, lengthOfValue))
+                     result = this.sum((+firstValue) , secondValue);
+                          break;
+                    }
+                    case '-': {
+                     secondValue = Number(value.substring(i, lengthOfValue))
+                     result = this.sum((+firstValue) , secondValue);
+                          break;
+                    }
+                    case '/': {
+                     secondValue = Number(value.substring(i, lengthOfValue))
+                     result = this.sum((+firstValue) , secondValue);
                           break;
                     }
                     default:{
                          firstValue+= value[i];
                          }
                }
-                    return result;
           } 
-
+          
+          return result;
      }
      
     sum(value1, value2) {
@@ -59,8 +75,8 @@ describe('#Calculator  functions ', () => {
            
      })
      it("Should show a complet operation", ()=>{
-     //    const calculator = new Calculator()
-        expect(calculator.divid(6,3)).toBe(2)
+        const calculator = new Calculator()
+        expect(calculator.convertValue("12+9")).toBe(21)
            
      })
 });
