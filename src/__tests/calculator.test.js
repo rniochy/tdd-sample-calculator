@@ -4,28 +4,28 @@ class Calculator {
           let firstValue ="";
           let secondValue = 0;
           let lengthOfValue = value.length;
-          let result =0;
+          let result;
 
           for(let i=0; i < lengthOfValue; i++){
                switch(value[i]){
                     case '+': {
-                     secondValue = Number(value.substring(i, lengthOfValue))
+                     secondValue = this.secondeFunction(value,i, lengthOfValue)
                      result = this.sum((+firstValue) , secondValue);
                           break;
                     }
                     case '*': {
-                     secondValue = Number(value.substring(i, lengthOfValue))
-                     result = this.sum((+firstValue) , secondValue);
+                     secondValue = this.secondeFunction(value,i, lengthOfValue)
+                     result = this.times( (+firstValue) , secondValue);;
                           break;
                     }
                     case '-': {
-                     secondValue = Number(value.substring(i, lengthOfValue))
-                     result = this.sum((+firstValue) , secondValue);
+                     secondValue = this.secondeFunction(value,i, lengthOfValue)
+                     result = this.minus((+firstValue) , secondValue);
                           break;
                     }
                     case '/': {
-                     secondValue = Number(value.substring(i, lengthOfValue))
-                     result = this.sum((+firstValue) , secondValue);
+                     secondValue = this.secondeFunction(value,i, lengthOfValue)
+                     result = this.divid((+firstValue) , secondValue);
                           break;
                     }
                     default:{
@@ -34,7 +34,7 @@ class Calculator {
                }
           } 
           
-          return result;
+          return result ?  result : +value
      }
      
     sum(value1, value2) {
@@ -48,6 +48,11 @@ class Calculator {
     }
     times(value1, value2) {
           return value1 * value2;
+    }
+
+    // Convert the o second value
+    secondeFunction(value, i, lengthOfValue) {
+          return Number(value.substring(i+1, lengthOfValue));
     }
 
 }
@@ -74,9 +79,29 @@ describe('#Calculator  functions ', () => {
         expect(calculator.divid(6,3)).toBe(2)
            
      })
+     it("Should show a complet operation without signal", ()=>{
+        const calculator = new Calculator()
+        expect(calculator.convertValue("20420")).toBe(20420)
+           
+     })
      it("Should show a complet operation", ()=>{
         const calculator = new Calculator()
-        expect(calculator.convertValue("12+9")).toBe(21)
+        expect(calculator.convertValue("20420")).toBe(20420)
+           
+     })
+     it("Should show a complet operation", ()=>{
+        const calculator = new Calculator()
+        expect(calculator.convertValue("20420")).toBe(20420)
+           
+     })
+     it("Should show a complet operation", ()=>{
+        const calculator = new Calculator()
+        expect(calculator.convertValue("20420")).toBe(20420)
+           
+     })
+     it("Should show a complet operation", ()=>{
+        const calculator = new Calculator()
+        expect(calculator.convertValue("20420")).toBe(20420)
            
      })
 });
