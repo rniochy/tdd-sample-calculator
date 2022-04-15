@@ -1,36 +1,37 @@
 class Calculator {
 
-   convertValue(value) {
-      let firstValue = "";
-      let secondValue = 0;
+   calculateValue(value) {
+      // let firstValue = ""; //First Value after signal
+      // let secondValue = 0; //Second Value after signal
       let lengthOfValue = value.length;
       let result;
 
       for (let i = 0; i < lengthOfValue; i++) {
          switch (value[i]) {
             case '+': {
-               secondValue = this.secondeFunction(value, i, lengthOfValue)
-               result = this.sum((+firstValue), secondValue);
+               // secondValue = this.secondeFunction(value, i, lengthOfValue)
+               const [firstValue, secondValue] = value.split(value[i]);
+               result = this.sum(+firstValue, +secondValue);
                break;
             }
             case '*': {
-               secondValue = this.secondeFunction(value, i, lengthOfValue)
-               result = this.times((+firstValue), secondValue);;
+               const [firstValue, secondValue] = value.split(value[i]);
+               result = this.times(+firstValue, +secondValue);
                break;
             }
             case '-': {
-               secondValue = this.secondeFunction(value, i, lengthOfValue)
-               result = this.minus((+firstValue), secondValue);
+               const [firstValue, secondValue] = value.split(value[i]);
+               result = this.minus(+firstValue, +secondValue);
                break;
             }
             case '/': {
-               secondValue = this.secondeFunction(value, i, lengthOfValue)
-               result = this.divid((+firstValue), secondValue);
+               const [firstValue, secondValue] = value.split(value[i]);
+               result = this.divid(+firstValue, +secondValue);
                break;
             }
-            default: {
-               firstValue += value[i];
-            }
+            // default: {
+            //    firstValue += value[i];
+            // }
          }
       }
 
@@ -51,9 +52,9 @@ class Calculator {
    }
 
    // Convert the o second value in Number
-   secondeFunction(value, i, lengthOfValue) {
-      return Number(value.substring(i + 1, lengthOfValue));
-   }
+   // secondeFunction(value, i, lengthOfValue) {
+   //    return Number(value.substring(i + 1, lengthOfValue));
+   // }
 
 }
 
@@ -81,27 +82,27 @@ describe('#Calculator  functions ', () => {
    })
    it("Should show a complet operation without signal", () => {
       const calculator = new Calculator()
-      expect(calculator.convertValue("20420")).toBe(20420)
+      expect(calculator.calculateValue("20420")).toBe(20420)
 
    })
    it("Should show a complet operation with minus", () => {
       const calculator = new Calculator()
-      expect(calculator.convertValue("20 - 5")).toBe(15)
+      expect(calculator.calculateValue("20 - 5")).toBe(15)
 
    })
    it("Should show a complet operation with plus", () => {
       const calculator = new Calculator()
-      expect(calculator.convertValue("20+20")).toBe(40)
+      expect(calculator.calculateValue("20+20")).toBe(40)
 
    })
    it("Should show a complet operation divid", () => {
       const calculator = new Calculator()
-      expect(calculator.convertValue("20/20")).toBe(1)
+      expect(calculator.calculateValue("20/20")).toBe(1)
 
    })
    it("Should show a complet operation multiplicate", () => {
       const calculator = new Calculator()
-      expect(calculator.convertValue("20*20")).toBe(400)
+      expect(calculator.calculateValue("20*1")).toBe(20)
 
    })
 });
