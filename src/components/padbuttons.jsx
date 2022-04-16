@@ -1,48 +1,52 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import CalculatorClass from '../calculatorClass/calculatorClass';
+import { AppContext } from './calculator';
 import './padbuttons.css'
 
-import { RiNumber0 } from 'react-icons/ri'
-import { RiNumber1 } from 'react-icons/ri'
-import { RiNumber2 } from 'react-icons/ri'
-import { RiNumber3 } from 'react-icons/ri'
-import { RiNumber4 } from 'react-icons/ri'
-import { RiNumber5 } from 'react-icons/ri'
-import { RiNumber6 } from 'react-icons/ri'
-import { RiNumber7 } from 'react-icons/ri'
-import { RiNumber8 } from 'react-icons/ri'
-import { RiNumber9 } from 'react-icons/ri'
-import { FaTimes } from 'react-icons/fa'
-import { RiDivideLine } from 'react-icons/ri'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { AiOutlineMinus } from 'react-icons/ai'
-import { BsDot } from 'react-icons/bs'
-
-// import { AppContext } from './calculator';
-
 const Padbuttons = () => {
+    const { input, setInput, setOutput } = useContext(AppContext);
 
-    // const { input, setInput } = useContext(AppContext)
+    const handleClick = (e) => {
+        const [value] = e.target.value;
+        setInput(input + "" + value);
+    }
+    const handleClickCleanCharacter = () => {
+        setInput(() => input.substring(0, input.length - 1))
+
+    }
+    const handleClickCleanInput = () => {
+        setInput('')
+        setOutput('')
+
+    }
+    const handleResultInput = () => {
+        const calculator = new CalculatorClass();
+        const result = calculator.calculateValue(input);
+
+        result ? setOutput(result) : setOutput('ERR : invalid format')
+    }
     return (
         <div className='container padbutton_conatiner'>
             <section>
                 <article>
-                    <button ><RiNumber7 /></button>
-                    <button><RiNumber8 /></button>
-                    <button><RiNumber9 /></button>
-                    <button><AiOutlinePlus /></button>
-                    <button><RiNumber4 /></button>
-                    <button><RiNumber5 /></button>
-                    <button><RiNumber6 /></button>
-                    <button style={{ fontSize: "9pt" }}><FaTimes /></button>
-                    <button><RiNumber1 /></button>
-                    <button><RiNumber2 /></button>
-                    <button><RiNumber3 /></button>
-                    <button> <AiOutlineMinus /> </button>
-                    <button><RiNumber0 /></button>
-                    <button><BsDot /></button>
-                    <button>C</button>
-                    <button><RiDivideLine /></button>
-                    <button>AC</button>
+                    <button value="7" onClick={handleClick}>7</button>
+                    <button value="8" onClick={handleClick}>8</button>
+                    <button value="9" onClick={handleClick}>9</button>
+                    <button value="+" onClick={handleClick}>+</button>
+                    <button value="4" onClick={handleClick}>4</button>
+                    <button value="5" onClick={handleClick}>5</button>
+                    <button value="6" onClick={handleClick}>6</button>
+                    <button value="*" onClick={handleClick}>*</button>
+                    <button value="1" onClick={handleClick}>1</button>
+                    <button value="2" onClick={handleClick}>2</button>
+                    <button value="3" onClick={handleClick}>3</button>
+                    <button value="-" onClick={handleClick}>-</button>
+                    <button value="0" onClick={handleClick}>0</button>
+                    <button value="." onClick={handleClick}>.</button>
+                    <button onClick={handleClickCleanCharacter}>C</button>
+                    <button value="/" onClick={handleClick}>/</button>
+                    <button onClick={handleClickCleanInput}>AC</button>
+                    <button onClick={handleResultInput}> = </button>
                 </article>
             </section>
         </div>

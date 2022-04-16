@@ -62,7 +62,7 @@ const calculator = new Calculator()
 describe('#Calculator  functions ', () => {
    it("Should sum two numbers", () => {
 
-      expect(calculator.sum(2, 2)).toBe(4)
+      expect(calculator.sum(2.5, 2)).toBe(4.5)
 
    })
    it("Should subtract two numbers", () => {
@@ -102,7 +102,7 @@ describe('#Calculator  functions ', () => {
    })
    it("Should show a complet operation multiplicate", () => {
       const calculator = new Calculator()
-      expect(calculator.calculateValue("20*1")).toBe(20)
+      expect(calculator.calculateValue("00*20")).toBe(0)
 
    })
 });

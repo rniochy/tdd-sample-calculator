@@ -1,3 +1,8 @@
 .output_continer {
      margin-bottom: 0.4rem;
 }
+
+.output_continer input {
+      font-size: 1.4rem;
+      color: rgb(128, 159, 247);
+}

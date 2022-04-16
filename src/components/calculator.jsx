@@ -7,9 +7,10 @@ import './calculator.css'
 export const AppContext = createContext(null)
 
 const Calculator = () => {
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState("")
+    const [ output, setOutput] = useState("")
     return (
-        <AppContext.Provider value={{ input, setInput }}>
+        <AppContext.Provider value={{ input, setInput, output, setOutput }}>
             <div className='container_calculator'>
                 <Input />
                 <Output />

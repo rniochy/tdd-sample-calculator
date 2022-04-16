@@ -22,8 +22,8 @@ button:active {
 }
 
 button:last-child {
-    width: calc(4.7rem * 4);
-    grid-column: 1/5;
+    grid-column: 2/5;
+    width: calc(4.7rem * 3);
     box-shadow:  1px 1px 2px 0.5px hsla(0, 0%, 0%, 0.541);
 }
 
