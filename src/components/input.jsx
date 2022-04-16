@@ -1,18 +1,17 @@
-import React, { useState, createContext } from 'react';
-import './input.css'
+import React, { useState, useContext } from 'react';
+import { AppContext } from './calculator';
+import './input.css';
+import Padbuttons from './padbuttons';
+
 
 const Input = () => {
-    const [input, setInput] = useState('')
-    const AppContext = createContext(null)
-
+    const {input} = useContext(AppContext)
     return (
-        <AppContext.Provider value={{ input, setInput }}>
-            <div className='container input_container'>
-                <section>
-                    <input  placeholder='Input' />
-                </section>
-            </div>
-        </AppContext.Provider>
+        <div className='container input_container'>
+            <section>
+                <input placeholder='Input' value={input} />
+            </section>
+        </div>
     );
 }
 export default Input;
