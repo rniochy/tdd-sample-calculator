@@ -1,4 +1,5 @@
 import React from 'react';
+import './padbuttons.css'
 import { RiNumber0 } from 'react-icons/ri'
 import { RiNumber1 } from 'react-icons/ri'
 import { RiNumber2 } from 'react-icons/ri'

@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* background: rgba(204, 204, 204, 0.404); */
+  margin: 0 auto;
+  width: 70vmax;
 }
 
 * {
