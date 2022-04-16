@@ -10,6 +10,11 @@ import { RiNumber6 } from 'react-icons/ri'
 import { RiNumber7 } from 'react-icons/ri'
 import { RiNumber8 } from 'react-icons/ri'
 import { RiNumber9 } from 'react-icons/ri'
+import {  FaTimes } from 'react-icons/fa'
+import {  RiDivideLine } from 'react-icons/ri'
+import {  AiOutlinePlus } from 'react-icons/ai'
+import {  AiOutlineMinus } from 'react-icons/ai'
+import {  BsDot } from 'react-icons/bs'
 
 const Padbuttons = () => {
     return (
@@ -19,19 +24,19 @@ const Padbuttons = () => {
                     <button><RiNumber7 /></button>
                     <button><RiNumber8 /></button>
                     <button><RiNumber9 /></button>
-                    <button> + </button>
+                    <button><AiOutlinePlus/></button>
                     <button><RiNumber4 /></button>
                     <button><RiNumber5 /></button>
                     <button><RiNumber6 /></button>
-                    <button>*</button>
+                    <button style={{fontSize: "9pt"}}><FaTimes/></button>
                     <button><RiNumber1 /></button>
                     <button><RiNumber2 /></button>
                     <button><RiNumber3 /></button>
-                    <button> - </button>
+                    <button> <AiOutlineMinus/> </button>
                     <button><RiNumber0 /></button>
-                    <button>.</button>
+                    <button><BsDot/></button>
                     <button>C</button>
-                    <button>/</button>
+                    <button><RiDivideLine/></button>
                     <button>AC</button>
                 </article>
             </section>
