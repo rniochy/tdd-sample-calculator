@@ -2,13 +2,25 @@ import React, { useContext, useState } from 'react';
 import CalculatorClass from '../calculatorClass/calculatorClass';
 import { AppContext } from './calculator';
 import './padbuttons.css'
-
+const ERROR_MESSAGE = 'ERR : invalid format'
 const Padbuttons = () => {
-    const { input, setInput, setOutput } = useContext(AppContext);
+    const { input, setInput, setOutput, output } = useContext(AppContext);
 
     const handleClick = (e) => {
         const [value] = e.target.value;
-        setInput(input + "" + value);
+
+        if (output) {
+            if (output === ERROR_MESSAGE) {
+                setOutput("")
+
+            } else {
+                setInput(output + "" + value)
+                setOutput("")
+            }
+        }
+        else {
+            setInput(input + "" + value);
+        }
     }
     const handleClickCleanCharacter = () => {
         setInput(() => input.substring(0, input.length - 1))
@@ -23,7 +35,13 @@ const Padbuttons = () => {
         const calculator = new CalculatorClass();
         const result = calculator.calculateValue(input);
 
-        result ? setOutput(result) : setOutput('ERR : invalid format')
+        if (result == 0) {
+            setOutput(result)
+        } else if (result) {
+            setOutput(result)
+        } else {
+            setOutput(ERROR_MESSAGE)
+        }
     }
     return (
         <div className='container padbutton_conatiner'>

@@ -15,6 +15,9 @@ const Calculator = () => {
                 <Input />
                 <Output />
                 <Padbuttons />
+                <div className='assignature'> 
+                     <small> Rodrigo Lima - rniochy &copy;</small>
+                </div>
             </div>
         </AppContext.Provider >
     );

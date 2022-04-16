@@ -7,7 +7,7 @@ const Input = () => {
     return (
         <div className='container input_container'>
             <section>
-                <input placeholder='Input' value={input} />
+                <input placeholder='0' value={input} />
             </section>
         </div>
     );

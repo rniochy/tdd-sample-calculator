@@ -38,8 +38,13 @@ export default class CalculatorClass {
              // }
           }
        }
- 
-       return result ? result : +value
+         if(result == 0){
+             return result;
+         } else if(result){
+             return result;
+         } else {
+             return +value
+         }
     }
     // Math functions operations 
     sum(value1, value2) {
