@@ -37,7 +37,7 @@ const Padbuttons = () => {
 
         if (result == 0) {
             setOutput(result)
-        } else if (result) {
+        } else if (result && new String(`${result}`) < 8) {
             setOutput(result)
         } else {
             setOutput(ERROR_MESSAGE)
