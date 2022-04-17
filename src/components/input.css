@@ -1,4 +1,7 @@
 .input_container {
      margin-top: 7.2rem;
+} 
+.input_container  section input{
+     border-radius: 1rem 1rem 0 0;
 }
 

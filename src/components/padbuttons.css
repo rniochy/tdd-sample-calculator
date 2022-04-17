@@ -20,11 +20,14 @@ button {
 button:active {
  background-color: #ccc;
 }
-
+button:nth-child(17) {
+     border-radius: 0 0 0 1rem;
+} 
 button:last-child {
     grid-column: 2/5;
     width: calc(4.7rem * 3);
     box-shadow:  1px 1px 2px 0.5px hsla(0, 0%, 0%, 0.541);
+    border-radius: 0 0 1rem 0;
 }
 
 button:nth-child(4n) {
